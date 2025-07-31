@@ -33,7 +33,18 @@ const Layout = () => {
   }
 
   // 시스템 관리자 권한이 없는 사용자가 관리자페이지로 접근시 에러페이지로 이동
-  if (!sessionUser.isSysAdmin && paths[0] === AdminConstants.CONTEXTPATH_ADMIN) {
+  if (
+    !sessionUser.isSysAdmin &&
+    paths[0] === AdminConstants.CONTEXTPATH_ADMIN
+  ) {
+    return <AdminUnAuthenticatedScreen />;
+  }
+
+  // 시스템 관리자 권한이2222222 없는 사용자가 관리자페이지로 접근시 에러페이지로 이동
+  if (
+    !sessionUser.isSysAdmin &&
+    paths[0] === AdminConstants.CONTEXTPATH_ADMIN
+  ) {
     return <AdminUnAuthenticatedScreen />;
   }
 
